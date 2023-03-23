@@ -1,0 +1,43 @@
+Parameter,Relationship,Direction,Unit,Node,Time,Value,Scenario
+cyclic_condition,node__temporal_block_BESS__flat,node__temporal_block,BESS,flat,,TRUE,Archive
+cyclic_condition,node__temporal_block_H2_storage__flat,node__temporal_block,H2_storage,flat,,TRUE,Archive
+fix_ratio_in_out_unit_flow,unit__node__node_BESS_charge__Group_El__BESS,unit__node__node,BESS_charge,Group_El,,1.015,Base
+fix_ratio_in_out_unit_flow,unit__node__node_BESS_discharge__BESS__El_BESS,unit__node__node,BESS_discharge,BESS,,1.026,Base
+fix_ratio_in_out_unit_flow,unit__node__node_El_curtail__El_renew__El_curtailed,unit__node__node,El_curtail,El_renew,,1,Base
+fix_ratio_in_out_unit_flow,unit__node__node_H2_compress__Group_El__H2_storage,unit__node__node,H2_compress,Group_El,,4,Base
+fix_ratio_in_out_unit_flow,unit__node__node_H2_compress__H2__H2_storage,unit__node__node,H2_compress,H2,,1,Base
+fix_ratio_in_out_unit_flow,unit__node__node_H2_decompress__H2_storage__H2_decompressed,unit__node__node,H2_decompress,H2_storage,,1,Base
+fix_ratio_in_out_unit_flow,unit__node__node_H2_discharge__H2_storage__H2_out,unit__node__node,H2_discharge,H2_storage,,1,Base
+fix_ratio_in_out_unit_flow,unit__node__node_H2_syn__Group_El__Group_H2_mFRR,unit__node__node,H2_syn,Group_El,,53.6,Base
+fix_ratio_in_out_unit_flow,unit__node__node_H2_syn__H2O_in__H2,unit__node__node,H2_syn,H2O_in,,9.9999,Base
+fix_ratio_out_out_unit_flow,unit__node__node_H2_syn__H2__Heat_out,unit__node__node,H2_syn,H2,,9.763,Base
+fix_ratio_out_out_unit_flow,unit__node__node_H2_syn__H2__O_out,unit__node__node,H2_syn,H2,,4.965,Base
+fuel_cost,unit__from_node_BESS_charge__El_renew,unit__from_node,BESS_charge,El_renew,hourly,DK1 2019,Base
+fuel_cost,unit__from_node_H2_compress__El_renew,unit__from_node,H2_compress,El_renew,hourly,DK1 2019,Base
+fuel_cost,unit__from_node_H2_syn__El_renew,unit__from_node,H2_syn,El_renew,hourly,DK1 2019,Base
+fuel_cost,unit__from_node_H2_syn__H2O_in,unit__from_node,H2_syn,H2O_in,,10,Base
+fuel_cost,unit__to_node_El_curtail__El_curtailed,unit__to_node,El_curtail,El_curtailed,,-0.0001,Base
+fuel_cost,unit__to_node_H2_discharge__H2_out,unit__to_node,H2_discharge,H2_out,,-2160,Base
+fuel_cost,unit__to_node_H2_discharge__H2_out,unit__to_node,H2_discharge,H2_out,,-3240,Premium-1.5x
+fuel_cost,unit__to_node_H2_discharge__H2_out,unit__to_node,H2_discharge,H2_out,,-4320,Premium-2x
+fuel_cost,unit__to_node_H2_discharge__H2_out,unit__to_node,H2_discharge,H2_out,,-6480,Premium-3x
+fuel_cost,unit__to_node_H2_syn__Heat_out,unit__to_node,H2_syn,Heat_out,,-2,Base
+fuel_cost,unit__to_node_H2_syn__O_out,unit__to_node,H2_syn,O_out,,-1,Base
+minimum_operating_point,unit__to_node_H2_syn__Group_H2_mFRR,unit__to_node,H2_syn,Group_H2_mFRR,,0.2,Mod-UC
+minimum_operating_point,unit__to_node_H2_syn__H2,unit__to_node,H2_syn,H2,,0.2,Mod-UC
+operating_points,unit__to_node_H2_syn__H2,unit__to_node,H2_syn,H2,0,0.25,Mod-piecewise-linear
+operating_points,unit__to_node_H2_syn__H2,unit__to_node,H2_syn,H2,1,0.5,Mod-piecewise-linear
+operating_points,unit__to_node_H2_syn__H2,unit__to_node,H2_syn,H2,2,0.75,Mod-piecewise-linear
+operating_points,unit__to_node_H2_syn__H2,unit__to_node,H2_syn,H2,3,1,Mod-piecewise-linear
+unit_capacity,unit__from_node_BESS_discharge__BESS,unit__from_node,BESS_discharge,BESS,,1,Base
+unit_capacity,unit__from_node_H2_compress__H2,unit__from_node,H2_compress,H2,,0.06,Base
+unit_capacity,unit__from_node_H2_compress__H2,unit__from_node,H2_compress,H2,,1,Inv-storage-compress
+unit_capacity,unit__to_node_BESS_charge__BESS,unit__to_node,BESS_charge,BESS,,1,Base
+unit_capacity,unit__to_node_El_PV__El_renew,unit__to_node,El_PV,El_renew,,27,Base
+unit_capacity,unit__to_node_El_wind__El_renew,unit__to_node,El_wind,El_renew,,54,Base
+unit_capacity,unit__to_node_H2_syn__Group_H2_mFRR,unit__to_node,H2_syn,Group_H2_mFRR,,0.235,Base
+unit_capacity,unit__to_node_H2_syn__Group_H2_mFRR,unit__to_node,H2_syn,Group_H2_mFRR,,1.95833,Tech-H2-larger (use units instead)
+unit_capacity,unit__to_node_H2_syn__Group_H2_mFRR,unit__to_node,H2_syn,Group_H2_mFRR,,0.0081,Tech-H2-units (place before H2 invests)
+unit_capacity,unit__to_node_H2_syn__H2,unit__to_node,H2_syn,H2,,0.235,Base
+unit_capacity,unit__to_node_H2_syn__H2,unit__to_node,H2_syn,H2,,1.95833,Tech-H2-larger (use units instead)
+unit_capacity,unit__to_node_H2_syn__H2,unit__to_node,H2_syn,H2,,0.0081,Tech-H2-units (place before H2 invests)
